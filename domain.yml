@@ -1,0 +1,101 @@
+version: "2.0"
+
+slots:
+  dino:
+    type: categorical
+    values:
+      - trex
+      - trike
+      - raptor
+  place:
+    type: categorical
+    values:
+      - safetyshelter
+      - safari
+      - restroom
+
+entities:
+  - dino
+  - place
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - askdinolist
+  - askaboutdino
+  - askservicelist
+  - askaboutplace
+
+responses:
+  utter_greet:
+  - text: "ආයුබෝවන්!! මම ඔබට සහය වන්නෙ කෙසේද?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "සුබ දවසක් ඔබට!!"
+
+  utter_iamabot:
+  - text: "සහය වන රොබෝවෙක්. ඔබට දැනගැනීමට ඇති දේ මගෙන් අසා දැනගත හැකියි."
+
+  utter_askdinolist:
+  - text: "දැනට වර්ග 3 ක සතුන් 25 ක් පමණ ඉන්නව. ( ටී රෙක්ස් -5, වෙලෝසිරැප්ටර් -12, ට්‍රයිසෙරාටොප්ස් -7)"
+
+  utter_askservicelist:
+  - text: "විවේකාගාරය, සෆාරි, ආරක්ශක ශෙල්ටර්"
+
+  utter_askaboutdino:
+    - condition:
+        - type: slot
+          name: dino
+          value: trike
+      text: "ට්‍රයිසෙරටොප්ස්. ශාක භක්ෂක. උස අඩි 9, දිග අඩි 25 ක් පමණ වර්ධනය වේ. ස්තානය - කොටස 3"
+      image: "images/tri.jpg"
+    - condition:
+        - type: slot
+          name: dino
+          value: trex
+      text: "ටයිරනසෝරස් රෙක්ස් නොහොත් ටී-රෙක්ස්. මාන්ශ භක්ෂක. උස අඩි 12, දිග අඩි 40 ක් පමණ වර්ධනය වේ. ස්තානය - කොටස 5"
+      image: "images/trex.jpg"
+    - condition:
+        - type: slot
+          name: dino
+          value: raptor
+      text: "වෙලෝසිරැප්ටර් නොහොත් ‍රැප්ටර්. මාන්ශ භක්ෂක. උස අඩි 1.5, දිග අඩි 6 ක් පමණ වර්ධනය වේ. ස්තානය - කොටස 4"
+      image: "images/raptor.jpg"
+    - text: "පැහැදිලි නැත. නැවත උත්සාහ කරන්න. ඩයිනෝසරයන් හැදින්වීමට (ටීරෙක්ස්, රැප්ටර්, ට්‍රයිසෙරාටොප්ස්) භාවිතා කල හැකියි."
+
+  utter_askaboutplace:
+    - condition:
+        - type: slot
+          name: place
+          value: safari
+      text: "කොටස 2. (ඇතුල්වන දොරටුව > කොටස 1 > කොටස 2)"
+    - condition:
+        - type: slot
+          name: place
+          value: restroom
+      text: "කොටස 1. (ඇතුල්වන දොරටුව > කොටස 1)"
+    - condition:
+        - type: slot
+          name: place
+          value: safetyshelter
+      text: "කොටස 2. (ඇතුල්වන දොරටුව > කොටස 1 > කොටස 2)"
+    - text: "පැහැදිලි නැත. නැවත උත්සාහ කරන්න. ස්තාන හැදින්වීමට (සෆාරි, විවේකාගාරය, අරක්ශක ස්තානය) භාවිතා කල හැකියි."
+
+    
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

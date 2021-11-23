@@ -1,0 +1,84 @@
+version: "2.0"
+
+stories:
+
+- story: ask dino list
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: askdinolist
+  - action: utter_askdinolist
+
+- story: ask dino list
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: askservicelist
+  - action: utter_askservicelist
+
+- story: ask about t-rex
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: askaboutdino
+      entities:
+        - dino: trex
+    - slot_was_set:
+      - dino: trex
+    - action: utter_askaboutdino
+
+- story: ask about trike
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: askaboutdino
+      entities:
+        - dino: trike
+    - slot_was_set:
+      - dino: trike
+    - action: utter_askaboutdino
+
+- story: ask about raptor
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: askaboutdino
+      entities:
+        - dino: raptor
+    - slot_was_set:
+      - dino: raptor
+    - action: utter_askaboutdino
+
+- story: ask about safari
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: askaboutplace
+      entities:
+        - place: safari
+    - slot_was_set:
+      - place: safari
+    - action: utter_askaboutplace
+
+- story: ask about shelter
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: askaboutplace
+      entities:
+        - place: safetyshelter
+    - slot_was_set:
+      - place: safetyshelter
+    - action: utter_askaboutplace
+
+- story: ask about rest
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: askaboutplace
+      entities:
+        - place: restroom
+    - slot_was_set:
+      - place: restroom
+    - action: utter_askaboutplace
+

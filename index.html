@@ -1,0 +1,27 @@
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+  </head>
+  <body style="background-color:#0d0d0b;">
+    <div class="mainDiv">
+      <div class="top">
+        <img src="images/image.jpg" class="centerImage">
+      </div>
+      <div class="chat-container"></div>
+    </div> 
+    
+    <script src="https://npm-scalableminds.s3.eu-central-1.amazonaws.com/@scalableminds/chatroom@master/dist/Chatroom.js"/></script>
+    <script type="text/javascript">
+      var chatroom = new window.Chatroom({
+        host: "http://localhost:5005",
+        title: "WELCOME",
+        container: document.querySelector(".chat-container"),
+        welcomeMessage: "ආයුබෝවන්!! මම ඔබට සහය වන්නෙ කෙසේද?",
+        // speechRecognition: "si",
+        // voiceLang: "si"
+      });
+      chatroom.openChat();
+      var myobj = document.getElementById("speech-input");
+      myobj.remove();
+    </script>
+  </body>
