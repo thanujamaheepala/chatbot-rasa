@@ -9,6 +9,6 @@ A small chatbot using rasa framework.
 1. Open a cmd/terminal in the direcory and run following commands:
   - rasa train
   - rasa run --enable-api --cors "*"
-2. Open a cmd/terminal in the direcory and run following command:
+2. Open another cmd/terminal in the direcory and run following command:
   - python -m http.server
 3. Go to localhost:8000 from browser and interact with the chatbot.
